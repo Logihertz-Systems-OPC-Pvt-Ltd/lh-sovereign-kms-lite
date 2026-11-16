@@ -143,23 +143,36 @@ Exported SARIF documents validate against the official OASIS schema (`sarif-sche
 
 ---
 
-## Section 6: Future Development Roadmap & Extension Architecture
+## 6. Standalone Future Development Roadmap (`v0.2.0` — `v0.5.0`)
 
-### Milestone v0.2.0: Modular Extensions & Telemetry Streaming
-- **Policy Pack Plugin Hooks**: Enable external declarative YAML/JSON rule-pack loading without source modification.
-- **Hardware Telemetry Streaming**: Real-time integration with SPI, I2C, UART, CAN, and eBPF kernel event rings.
-- **Configurable Severity Weights**: Support custom industrial profiles (e.g. Nuclear/Medical safety vs. Commercial IoT).
+`lh-sovereign-kms-lite` is developed as an independent, standalone open-source project. The following roadmap defines the planned architectural, algorithmic, and protocol enhancements for upcoming point releases of `lh-sovereign-kms-lite`:
 
-### Milestone v0.5.0: Native STRUCT OS Integration & Daemonless IPC
-- **STRUCT OS Security Bus**: Native zero-copy shared memory integration with the STRUCT OS Security Command Center.
-- **Automated Remediation Synthesis**: Direct IPC bridge with `lh-auto-remediation` for automatic synthesizing of verified unified diffs.
-- **Hardware Root-of-Trust Attestation**: Cryptographic sealing of telemetry reports via TPM 2.0 PCR-bound quotes.
+| Target Release | Milestone Focus | Planned Technical Deliverables for `lh-sovereign-kms-lite` |
+|---|---|---|
+| **`v0.2.0`** | Parser & Protocol Expansion | Add Feldman's Verifiable Secret Sharing (VSS) commitment verification during Shamir unseal and ChaCha20-Poly1305 / RFC 3394 AES-256-KW key wrapping. |
+| **`v0.3.0`** | Deep Algorithmic & Stateful Analysis | Implement asymmetric envelope keys (Ed25519 signing, X25519 ECDH key agreement, RSA-OAEP-SHA256) and scoped per-tenant RBAC capability policies. |
+| **`v0.4.0`** | Remediation, Synthesis & Format Interop | Add KMIP v2.1 (Key Management Interoperability Protocol) JSON/TTLV request-response compatibility and time-bounded lease tokens. |
+| **`v0.5.0`** | High-Throughput Performance & Formal Verification | Implement encrypted persistent key-ring storage with automated background envelope re-wrapping and tamper-evident hash-chained audit logs. |
 
-### Milestone v1.0.0: High-Assurance Certification & Hardening
-- **FIPS 140-3 Validation**: Cryptographic module boundary verification and NIST CAVP compliance testing.
-- **Common Criteria EAL4+ Alignment**: Formal verification of deterministic security targets and functional invariants.
-- **Automotive & Industrial Compliance**: Formal baseline compliance with ISO 21434 (Automotive Cybersecurity) and IEC 62443 (Industrial Automation & Control Systems).
-- **Signed Binary Attestation**: In-toto attestation and Cosign cryptographic signing across all release artifacts.
+### 6.1 `v0.2.0` — Parser & Protocol Expansion
+- **Format & Protocol Ingestion**: Add Feldman's Verifiable Secret Sharing (VSS) commitment verification during Shamir unseal and ChaCha20-Poly1305 / RFC 3394 AES-256-KW key wrapping.
+- **Zero-Dependency Architecture**: Pure standard library implementation with deterministic parsing guarantees and strict error handling.
+- **Verification & Telemetry**: Regression test suites verifying schema edge-cases, malformed payload rejections, and SARIF v2.1.0 output fidelity.
+
+### 6.2 `v0.3.0` — Deep Algorithmic & Stateful Analysis
+- **Algorithmic Core**: Implement asymmetric envelope keys (Ed25519 signing, X25519 ECDH key agreement, RSA-OAEP-SHA256) and scoped per-tenant RBAC capability policies.
+- **State Machine & Analysis Engine**: High-fidelity state tracking, cycle detection, and invariant checking with minimal computational overhead.
+- **Differential & Regression Verification**: Comprehensive test harnesses covering stateful transitions, edge conditions, and mathematical boundary constraints.
+
+### 6.3 `v0.4.0` — Remediation, Synthesis & Format Interoperability
+- **Synthesis & Interoperability**: Add KMIP v2.1 (Key Management Interoperability Protocol) JSON/TTLV request-response compatibility and time-bounded lease tokens.
+- **Automated Remediation Workflows**: Idempotent generation of verified configuration patches, policy rules, and standardized cross-format exports.
+- **Contract & Artifact Validation**: Cryptographic baseline verification and end-to-end integration testing for synthesized deliverables.
+
+### 6.4 `v0.5.0` — High-Throughput Performance & Formal Verification
+- **High-Throughput Optimization**: Implement encrypted persistent key-ring storage with automated background envelope re-wrapping and tamper-evident hash-chained audit logs.
+- **Hardware & Kernel Acceleration**: Vectorized SIMD/eBPF/sub-millisecond streaming execution with bounded memory allocation.
+- **Formal Verification & Assurance**: Mathematical proof of invariant preservation, false-positive calibration, and high-assurance certification baselines.
 
 ---
 
