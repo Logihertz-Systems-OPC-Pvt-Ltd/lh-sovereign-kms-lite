@@ -1,0 +1,9 @@
+Package: lh-sovereign-kms-lite
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Maintainer: Sameer Tawade <ops@logihertz.com>
+Homepage: https://www.logihertz.com
+Description: lh-kms - GF(2^8) Shamir Lagrange Basis Interpolation at x = 0
+ Self-hosted Go envelope Key Management Service (KMS) implementing GF(2^8) Shamir (M, N) threshold secret sharing unseal, AES-256-GCM KEK/DEK envelope encryption with canonical AAD binding, and zero-exposure key rotation.
