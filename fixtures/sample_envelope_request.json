@@ -1,0 +1,10 @@
+{
+  "key_id": "sovereign-vault-root-key",
+  "plaintext": "SOVEREIGN_ENCLAVE_LUKS_MASTER_KEY_PAYLOAD_0xFEEDFACE",
+  "encryption_context": {
+    "enclave": "mumbai-edge-01",
+    "environment": "production-airgap",
+    "purpose": "luks-volume-master-key",
+    "service": "lh-storage-daemon"
+  }
+}

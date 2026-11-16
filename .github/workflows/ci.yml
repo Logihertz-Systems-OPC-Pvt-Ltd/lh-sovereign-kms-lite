@@ -1,0 +1,62 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build, Lint & Verify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Go Toolchain
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Check Formatting (gofmt)
+        run: |
+          diffs=$(gofmt -s -l .)
+          if [ -n "$diffs" ]; then
+            echo "Unformatted Go files detected:"
+            echo "$diffs"
+            exit 1
+          fi
+
+      - name: Static Analysis (go vet)
+        run: go vet ./...
+
+      - name: Build Binary (go build)
+        run: |
+          mkdir -p bin
+          go build -v -o bin/lh-kms ./cmd/lh-kms
+
+      - name: Run Test Suite (go test -v -race)
+        run: go test -v -race ./...
+
+      - name: Verify CLI Smoke Operations
+        run: |
+          ./bin/lh-kms --version
+          ./bin/lh-kms --help
+          ./bin/lh-kms scan fixtures/hardened_kms_policy.json
+          ./bin/lh-kms scan fixtures/hardened_kms_policy.json --format json
+          ./bin/lh-kms scan fixtures/hardened_kms_policy.json --format sarif
+          ./bin/lh-kms shamir-combine fixtures/sample_shamir_shares.json
+          ./bin/lh-kms envelope-demo fixtures/sample_envelope_request.json
+          
+          # Verify vulnerable policy exits with code 1
+          set +e
+          ./bin/lh-kms scan fixtures/vulnerable_kms_policy.json
+          EXIT_CODE=$?
+          set -e
+          if [ $EXIT_CODE -ne 1 ]; then
+            echo "Expected exit code 1 for vulnerable policy, got $EXIT_CODE"
+            exit 1
+          fi

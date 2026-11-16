@@ -1,0 +1,43 @@
+{
+  "version": "0.1.0",
+  "threshold": 3,
+  "total_shares": 5,
+  "secret_commitment_sha256": "0bebf30346e5df8fff1367e816095401af05d7fdbec30d385212b08c0cbe7b1c",
+  "shares": [
+    {
+      "index": 1,
+      "threshold": 3,
+      "total_shares": 5,
+      "share_bytes_hex": "252a574459beab988d92bfac6146532035fae714290e7b685da2cffcf196a3b0",
+      "secret_commitment_sha256": "0bebf30346e5df8fff1367e816095401af05d7fdbec30d385212b08c0cbe7b1c"
+    },
+    {
+      "index": 2,
+      "threshold": 3,
+      "total_shares": 5,
+      "share_bytes_hex": "bfda14d59e7c3ff6a0e51677fb5e1df992aaf95f94914f068d6fdc3d56ee2d34",
+      "secret_commitment_sha256": "0bebf30346e5df8fff1367e816095401af05d7fdbec30d385212b08c0cbe7b1c"
+    },
+    {
+      "index": 3,
+      "threshold": 3,
+      "total_shares": 5,
+      "share_bytes_hex": "9bf24095c2c49366247da2d7971641c9b6420d5fa8892376c9d708ddba6691a4",
+      "secret_commitment_sha256": "0bebf30346e5df8fff1367e816095401af05d7fdbec30d385212b08c0cbe7b1c"
+    },
+    {
+      "index": 4,
+      "threshold": 3,
+      "total_shares": 5,
+      "share_bytes_hex": "9fb5ebe2a2ae9ec28ce68c624489b9c101b6a6b3c9e39dfb5c905d8989303aac",
+      "secret_commitment_sha256": "0bebf30346e5df8fff1367e816095401af05d7fdbec30d385212b08c0cbe7b1c"
+    },
+    {
+      "index": 5,
+      "threshold": 3,
+      "total_shares": 5,
+      "share_bytes_hex": "bb9dbfa2fe163252087e38c228c1e5f1255e52b3f5fbf18b1828896965b8863c",
+      "secret_commitment_sha256": "0bebf30346e5df8fff1367e816095401af05d7fdbec30d385212b08c0cbe7b1c"
+    }
+  ]
+}

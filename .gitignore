@@ -1,0 +1,22 @@
+# Binaries
+bin/
+dist/
+/lh-kms
+*.exe
+*.test
+
+# Test artifacts & coverage
+coverage.out
+*.coverage
+*.prof
+
+# Release archives
+*.tar.gz
+*.zip
+
+# OS and IDE files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
